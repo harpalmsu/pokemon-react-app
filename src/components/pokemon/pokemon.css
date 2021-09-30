@@ -1,0 +1,19 @@
+.header {
+  position: fixed;
+  height: 30px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid black;
+  background-color: cornflowerblue;
+
+  top: 0px;
+}
+.container {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-content: center;
+}
