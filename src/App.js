@@ -1,17 +1,32 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Pokemon from "./components/pokemon/pokemon";
-import { useState } from "react";
+import Pokemon from "./components/Pokemon";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Posts from "./components/Posts";
+import PokemonDetails from "./components/PokemonDetails";
 
 function App() {
-  const [show, setShow] = useState(false);
-  const toggleModal = () => {
-    setShow(!show);
-  };
-
   return (
     <div className="App">
-      <Pokemon />
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Pokemon</Link>
+              </li>
+              <li>
+                <Link to="/posts">Posts</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Switch>
+          <Route path="/" exact component={Pokemon} />
+          <Route path="/pokemon?:pokemonId" component={PokemonDetails} />
+          <Route path="/posts" component={Posts} />
+        </Switch>
+      </Router>
+      {/* <Posts /> */}
     </div>
   );
 }
